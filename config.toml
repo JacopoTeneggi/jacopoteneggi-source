@@ -1,0 +1,36 @@
+baseurl                  = "https://jacopoteneggi.github.io/"           # Your domain name. Must end with "/"
+languageCode             = "en-us"
+defaultContentLanguage   = "en"
+isMultilingual           = false
+title                    = "JacopoTeneggi"
+theme                    = "sam"
+pygmentsStyle            = "monokai"                        # https://help.farbox.com/pygments.html
+pygmentsCodefences       = true
+# googleAnalytics        = ""                               # Tracking code, eg. "UA-111111111-1"
+
+[params]
+    dateform             = "Jan 2006"
+    dateformfull         = "Mon Jan 2 2006 15:04:05 EST"
+    favicon              = "favicon.ico"
+    homepage             = "main"                           # What to call the home page link
+    footerText           = "© 2019 - Jacopo Teneggi"
+
+# Metadata for Open Graph and Twitter
+    description          = "Jacopo Teneggi"               # Max 160 characters show in search results
+    images               = ["tn.png"]                       # Image that shows on Twitter cards and Open Graph links to the site
+    title                = "jacopoteneggi"
+
+[[params.greeting]]
+    link = "/about"
+    text = "Hi! this is Jacopo"
+
+[[params.mainMenu]]
+    link = "/research"
+    text = "Research"
+
+[[params.mainMenu]]
+    link = "/experience"
+    text = "Experience"
+
+[imaging]
+    quality = 75
