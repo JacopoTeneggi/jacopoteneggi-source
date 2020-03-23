@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        {{ partial "head.html" . }}
-        <title>{{ .Title }}</title>
-    </head>
-    <body>
-        <div class="section" id="splash">
 
-            {{ if .Site.Params.greeting }}
-                {{ range .Site.Params.greeting}}
-                    <div class="big-link greeting">
-                        <a href="{{.link}}">
-                            {{.text}}
-                        </a>
-                        <div class="subgreeting">
-                            Undergraduate Biomedical Engineering student @ <a href="https://www.polito.it/index.php?lang=en" target="_blank">POLITO</a>
-                        </div>
-                    </div>
-                {{ end }}
-            {{ end }}
+<head>
+    {{ partial "head.html" . }}
+    <title>{{ .Title }}</title>
+</head>
 
-            {{ if .Site.Params.mainMenu }}
-                {{ range .Site.Params.mainMenu }}
-                    <div class="big-link">
-                        <a href="{{.link}}">
-                            └ {{.text}}
-                        </a>
-                    </div>
-                {{ end }}
-            {{ else }}
-                {{ range .Site.Sections }}
-                    <div class="big-link"> 
-                        <a href="{{.Permalink}}">
-                            {{.Title}}
-                        </a>
-                    </div>
-                {{ end }}
-            {{ end }}
-            
+<body>
+    <div class="section" id="splash">
+        <button type="button" class="btn btn-link btn-dark-theme">
+            <i class="fas fa-adjust" style="color: var(--primary-color)"></i>
+        </button>
+        {{ if .Site.Params.greeting }}
+        {{ range .Site.Params.greeting}}
+        <div class="big-link greeting">
+            <a href="{{.link}}">
+                {{.text}}
+            </a>
+            <div class="subgreeting">
+                Undergraduate Biomedical Engineering student @ <a href="https://www.polito.it/index.php?lang=en"
+                    target="_blank">POLITO</a>
+            </div>
         </div>
-    </body>
+        {{ end }}
+        {{ end }}
+
+        {{ if .Site.Params.mainMenu }}
+        {{ range .Site.Params.mainMenu }}
+        <div class="big-link">
+            <a href="{{.link}}">
+                └ {{.text}}
+            </a>
+        </div>
+        {{ end }}
+        {{ else }}
+        {{ range .Site.Sections }}
+        <div class="big-link">
+            <a href="{{.Permalink}}">
+                {{.Title}}
+            </a>
+        </div>
+        {{ end }}
+        {{ end }}
+
+    </div>
+</body>
+
 </html>

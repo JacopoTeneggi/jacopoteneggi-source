@@ -17,40 +17,44 @@
 </head>
 
 <body>
-    {{ block "main" . }}<div class="wrap">
+    {{ block "main" . }}
+    <div class="wrap">
+        <div class="row">
+            <div class="col-xs-10 col-sm-8 col-md-6 col-center">
+                {{ block "section_title" . }}<div class="research-title">{{ .Title }}</div>{{ end }}
 
-        {{ block "section_title" . }}<div class="research-title">{{ .Title }}</div>{{ end }}
+                {{ block "section_content" . }}
+                <div class="section" id="content">
+                    {{ .Content }}
+                </div>
+                {{ end }}
 
-        {{ block "section_content" . }}
-        <div class="section" id="content">
-            {{ .Content }}
-        </div>
-        {{ end }}
-
-        {{ block "info" . }} 
-            <div class="section" id="info">
-                —
-                <ul>
-                    <li>
-                        Position: {{ .Params.position }}
-                    </li>
-                    <li>
-                        Institution: {{ .Params.institution }}
-                    </li>
-                    <li>
-                        Location: {{ .Params.city }}
-                    </li>
-                    <li>
-                        Collaborators: 
-                        {{ range .Params.collaborators}}
+                {{ block "info" . }}
+                <div class="section" id="info">
+                    —
+                    <ul>
+                        <li>
+                            Position: {{ .Params.position }}
+                        </li>
+                        <li>
+                            Institution: {{ .Params.institution }}
+                        </li>
+                        <li>
+                            Location: {{ .Params.city }}
+                        </li>
+                        <li>
+                            Collaborators:
+                            {{ range .Params.collaborators}}
                             &nbsp;<a href="{{ index . 1}}" target="_blank">{{ index . 0 }}</a>&nbsp;
-                        {{ end }}
-                    </li>
-                </ul>
-                —
+                            {{ end }}
+                        </li>
+                    </ul>
+                    —
+                </div>
+                {{ end }}
             </div>
-        {{ end }}
-        
+        </div>
+
         {{ block "bottom-menu" . }}
         {{ if .Site.Params.mainMenu }}
         <div class="section bottom-menu">
@@ -64,7 +68,7 @@
             {{ partial "footer.html" . }}
         </div>
         {{ end }}
-        
+
     </div>
     {{ end }}
 </body>
