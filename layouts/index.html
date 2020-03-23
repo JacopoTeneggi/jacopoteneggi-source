@@ -7,8 +7,22 @@
 </head>
 
 <body>
+    {{ partial "scripts.html" . }}
+    <script>
+        $(document).ready(function() {
+            document.documentElement.setAttribute('data-theme', 'light');
+        });
+
+        function onClick() {
+            console.log('click');
+            var theme = document.documentElement.getAttribute('data-theme');
+            console.log(theme);
+            if (theme == "light") document.documentElement.setAttribute('data-theme', 'dark');
+            if (theme == "dark") document.documentElement.setAttribute('data-theme', 'light');
+        };
+    </script>
     <div class="section" id="splash">
-        <button type="button" class="btn btn-link btn-dark-theme">
+        <button onclick="onClick();" type="button" class="btn btn-link btn-dark-theme" id="theme-toggler">
             <i class="fas fa-adjust" style="color: var(--primary-color)"></i>
         </button>
         {{ if .Site.Params.greeting }}
